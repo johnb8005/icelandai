@@ -44,6 +44,13 @@ const Iceland = () => {
       image: "https://images.unsplash.com/photo-1515069763337-21faecd3e522?w=800&h=600&fit=crop"
     },
     {
+      title: "Secret Lagoon",
+      description: "Iceland's oldest natural hot spring - a hidden gem since 1891",
+      icon: <Waves className="w-8 h-8" />,
+      image: "https://images.unsplash.com/photo-1520688517639-beab5cb87d1f?w=800&h=600&fit=crop",
+      link: "#secret-lagoon"
+    },
+    {
       title: "Glaciers & Ice Caves",
       description: "Explore ancient glaciers and crystal-blue ice caves",
       icon: <Mountain className="w-8 h-8" />,
@@ -157,7 +164,8 @@ const Iceland = () => {
             {attractions.map((attraction, index) => (
               <Card
                 key={index}
-                className="bg-gray-800/50 border-gray-700 overflow-hidden group hover:scale-105 transition-all duration-300"
+                className="bg-gray-800/50 border-gray-700 overflow-hidden group hover:scale-105 transition-all duration-300 cursor-pointer"
+                onClick={() => attraction.link && (window.location.hash = attraction.link)}
               >
                 <div className="relative h-64 overflow-hidden">
                   <img
@@ -169,6 +177,11 @@ const Iceland = () => {
                   <div className="absolute bottom-4 left-4 text-cyan-400">
                     {attraction.icon}
                   </div>
+                  {attraction.link && (
+                    <div className="absolute top-4 right-4 bg-cyan-500 text-gray-900 px-2 py-1 rounded-full text-xs font-bold">
+                      EXPLORE
+                    </div>
+                  )}
                 </div>
                 <CardHeader>
                   <CardTitle className="text-2xl">{attraction.title}</CardTitle>
