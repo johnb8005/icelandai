@@ -1,8 +1,8 @@
 import "./index.css";
-import Router from "./Router";
+import WineCellar from "./WineCellar";
 
 export function App() {
-  return <Router />;
+  return <WineCellar />;
 }
 
 export default App;
