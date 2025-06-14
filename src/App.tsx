@@ -1,8 +1,8 @@
 import "./index.css";
-import Iceland from "./Iceland";
+import Router from "./Router";
 
 export function App() {
-  return <Iceland />;
+  return <Router />;
 }
 
 export default App;
