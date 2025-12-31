@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: builder
+    container_name: icelandai-web-dev
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=development
+    volumes:
+      - ./src:/app/src
+      - ./styles:/app/styles
+      - ./package.json:/app/package.json
+      - bun-cache:/root/.bun
+    command: bun --hot src/index.tsx
+    restart: unless-stopped
+    networks:
+      - icelandai-network-dev
+
+networks:
+  icelandai-network-dev:
+    driver: bridge
+
+volumes:
+  bun-cache:
